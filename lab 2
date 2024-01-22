@@ -21,6 +21,8 @@ print("Modified list:", result)
 Original list: [1, 0, 3, 2, 5, 4]
 Modified list: [1, 0, 3, 2, 5, 4]
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # 2. Write a Python program to convert a list of multiple integers into a
 # single integer.
 # Sample list: [11, 33, 50]
@@ -52,6 +54,9 @@ print("Expected Output:", output)
 ​
 Sample list: [11, 33, 50]
 Expected Output: 113350
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # 3. Write a Python program to compute the difference between two lists.
 # Sample data: ["red", "orange", "green", "blue", "white"], ["black",
 # "yellow", "green", "blue"]
@@ -92,6 +97,9 @@ print("Color2-Color1:", result2)
 ​
 Color1-Color2: ['orange', 'red', 'white']
 Color2-Color1: ['black', 'yellow']
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # 4. Write a Python program to move all zero digits to the end of a given list
 # of numbers.
 # Expected output:
@@ -133,6 +141,9 @@ Original list:
 [3, 4, 0, 0, 0, 6, 2, 0, 6, 7, 6, 0, 0, 0, 9, 10, 7, 4, 4, 5, 3, 0, 0, 2, 9, 7, 1]
 Move all zero digits to end of the list:
 [3, 4, 6, 2, 6, 7, 6, 9, 10, 7, 4, 4, 5, 3, 2, 9, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # 5. Write a Python program to find the list in a list of lists whose sum of
 # elements is the highest.
 # Sample lists: [1,2,3], [4,5,6], [10,11,12], [7,8,9]
@@ -174,6 +185,8 @@ Sample lists:
 [10, 11, 12]
 [7, 8, 9]
 List with the highest sum: [10, 11, 12]
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # 6. Write a Python program to remove consecutive (following each other
 # continuously) duplicates (elements) from a given list.
 # Original list:
@@ -204,3 +217,179 @@ Original list:
 [0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4]
 After removing consecutive duplicates:
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 4]
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 7. Write a Python program to scramble the letters of a string in a given
+# list.
+# Original list:
+# ['Python', 'list', 'exercises', 'practice', 'solution']
+# After scrambling the letters of the strings of the said list:
+# ['tnPhyo', 'tlis', 'ecrsseiex', 'ccpitear', 'noiltuos']
+​
+import random
+​
+def scramble_string(s):
+    # Convert the string to a list of characters
+    char_list = list(s)
+    # Shuffle the list of characters
+    random.shuffle(char_list)
+    # Join the shuffled characters to form a new string
+    return ''.join(char_list)
+​
+def scramble_strings_in_list(string_list):
+    # Apply the scramble_string function to each string in the input list
+    # using a list comprehension to create the resulting list
+    return [scramble_string(s) for s in string_list]
+​
+# Example usage:
+original_list = ['Python', 'list', 'exercises', 'practice', 'solution']
+# Scramble the strings in the original list
+scrambled_list = scramble_strings_in_list(original_list)
+​
+# Display the original and scrambled lists
+print("Original list:")
+print(original_list)
+print("After scrambling the letters of the strings:")
+print(scrambled_list)
+​
+Original list:
+['Python', 'list', 'exercises', 'practice', 'solution']
+After scrambling the letters of the strings:
+['hPoytn', 'itls', 'reciessex', 'airpcect', 'uinolsot']
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 8. Write a Python program to find the maximum and minimum product of
+# pairs of tuples within a given list.
+# The original list, tuple :
+# [(2, 7), (2, 6), (1, 8), (4, 9)]
+# Maximum and minimum product from the pairs of the said tuple of list:
+# (36, 8)
+​
+import random
+​
+def scramble_string(s):
+    # Convert the string to a list of characters
+    char_list = list(s)
+    
+    # Shuffle the list of characters randomly
+    random.shuffle(char_list)
+    
+    # Join the shuffled characters to form a new string
+    return ''.join(char_list)
+​
+def scramble_strings_in_list(string_list):
+    # Apply the scramble_string function to each string in the input list
+    # using a list comprehension to create the resulting list of scrambled strings
+    return [scramble_string(s) for s in string_list]
+​
+# Example usage:
+original_list = ['Python', 'list', 'exercises', 'practice', 'solution']
+​
+# Scramble the strings in the original list
+scrambled_list = scramble_strings_in_list(original_list)
+​
+# Display the original list
+print("Original list:")
+print(original_list)
+​
+# Display the list after scrambling the letters of the strings
+print("After scrambling the letters of the strings:")
+print(scrambled_list)
+​
+Original list:
+['Python', 'list', 'exercises', 'practice', 'solution']
+After scrambling the letters of the strings:
+['hnytoP', 'itsl', 'rseexseci', 'eprtccai', 'sloniuot']
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 9. Write a Python program to remove specific words from a given list.
+# Original list:
+# ['red', 'green', 'blue', 'white', 'black', 'orange']
+# Remove words:
+# ['white', 'orange']
+# After removing the specified words from the said list:
+# ['red', 'green', 'blue', 'black']
+​
+​
+def remove_specific_words(input_list, words_to_remove):
+    """
+    Removes specific words from a given list.
+​
+    Args:
+    - input_list (list): The original list of words.
+    - words_to_remove (list): The list of words to be removed.
+​
+    Returns:
+    - list: A new list with the specified words removed.
+    """
+    # Use list comprehension to create a new list without the specified words
+    result_list = [word for word in input_list if word not in words_to_remove]
+    return result_list
+​
+# Example usage:
+original_list = ['red', 'green', 'blue', 'white', 'black', 'orange']
+words_to_remove = ['white', 'orange']
+​
+# Remove the specified words from the original list
+filtered_list = remove_specific_words(original_list, words_to_remove)
+​
+# Display the original list
+print("Original list:")
+print(original_list)
+​
+# Display the list after removing the specified words
+print(f"After removing the specified words from the list:")
+print(filtered_list)
+​
+Original list:
+['red', 'green', 'blue', 'white', 'black', 'orange']
+After removing the specified words from the list:
+['red', 'green', 'blue', 'black']
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 10. Write a Python program to convert a given list of strings and characters
+# to a single list of characters.
+# Original list:
+# ['red', 'white', 'a', 'b', 'black', 'f']
+# Convert the said list of strings and characters to a single list of
+# characters:
+# ['r', 'e', 'd', 'w', 'h', 'i', 't', 'e', 'a', 'b', 'b', 'l', 'a', 'c', 'k', 'f']
+​
+def convert_to_single_list(input_list):
+    """
+    Converts a given list of strings and characters to a single list of characters.
+​
+    Args:
+    - input_list (list): The original list of strings and characters.
+​
+    Returns:
+    - list: A new list containing individual characters from the input list.
+    """
+    # Use list comprehension to create a new list with individual characters
+    result_list = [char for item in input_list for char in str(item)]
+    return result_list
+​
+# Example usage:
+original_list = ['red', 'white', 'a', 'b', 'black', 'f']
+​
+# Convert the original list to a single list of characters
+char_list = convert_to_single_list(original_list)
+​
+# Display the original list
+print("Original list:")
+print(original_list)
+​
+# Display the converted list of characters
+print("Converted list of characters:")
+print(char_list)
+​
+Original list:
+['red', 'white', 'a', 'b', 'black', 'f']
+Converted list of characters:
+['r', 'e', 'd', 'w', 'h', 'i', 't', 'e', 'a', 'b', 'b', 'l', 'a', 'c', 'k', 'f']
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
