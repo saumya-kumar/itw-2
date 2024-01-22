@@ -1,0 +1,206 @@
+# 1. Write a Python program to change the position of every n-th value to
+# the (n+1)th in a list.
+# Sample list: [0,1,2,3,4,5]
+# Expected Output: [1, 0, 3, 2, 5, 4]
+
+def swap_nth_values(lst):
+    for i in range(0, len(lst)-1, 2):
+        lst[i], lst[i+1] = lst[i+1], lst[i]
+    return lst
+
+# Sample list
+sample_list = [0, 1, 2, 3, 4, 5]
+
+# Change the position of every n-th value to the (n+1)th
+result = swap_nth_values(sample_list)
+
+# Display the result
+print("Original list:", sample_list)
+print("Modified list:", result)
+
+Original list: [1, 0, 3, 2, 5, 4]
+Modified list: [1, 0, 3, 2, 5, 4]
+
+# 2. Write a Python program to convert a list of multiple integers into a
+# single integer.
+# Sample list: [11, 33, 50]
+# Expected Output: 113350
+​
+def convert_list_to_integer(lst):
+    # Initialize an empty string to store the concatenated result
+    concatenated_str = ''
+​
+    # Iterate through each integer in the list
+    for num in lst:
+        # Convert the integer to a string and append to the result string
+        concatenated_str += str(num)
+​
+    # Convert the concatenated string to integer
+    result = int(concatenated_str)
+​
+    return result
+​
+# Sample list
+sample_list = [11, 33, 50]
+​
+# Convert the list to a single integer using a for loop
+output = convert_list_to_integer(sample_list)
+​
+# Print the result
+print("Sample list:", sample_list)
+print("Expected Output:", output)
+​
+Sample list: [11, 33, 50]
+Expected Output: 113350
+# 3. Write a Python program to compute the difference between two lists.
+# Sample data: ["red", "orange", "green", "blue", "white"], ["black",
+# "yellow", "green", "blue"]
+# Expected Output:
+# Color1-Color2: ['white', 'orange', 'red']
+# Color2-Color1: ['black', 'yellow']
+"""
+This expression performs set difference between two sets created from list1 and list2. Let's break it down:
+​
+set(list1): This creates a set from the elements of list1. A set is an unordered collection of unique elements, so any duplicate elements in list1 will be removed.
+​
+set(list2): Similarly, this creates a set from the elements of list2.
+​
+set(list1) - set(list2): This performs the set difference operation. It returns a new set containing elements that are in set(list1) but not in set(list2). In other words, it gives you the elements that are unique to list1 and not present in list2.
+​
+list(...): Finally, this converts the resulting set back to a list.
+​
+So, list(set(list1) - set(list2)) gives you a list containing the elements that are unique to list1 and not found in list2. This is used in the program to calculate the difference between two lists of colors.
+"""
+​
+def compute_list_difference(list1, list2):
+    # Compute the difference between two lists
+    color1_minus_color2 = list(set(list1) - set(list2))
+    color2_minus_color1 = list(set(list2) - set(list1))
+​
+    return color1_minus_color2, color2_minus_color1
+​
+# Sample data
+color_list1 = ["red", "orange", "green", "blue", "white"]
+color_list2 = ["black", "yellow", "green", "blue"]
+​
+# Compute the difference between two lists
+result1, result2 = compute_list_difference(color_list1, color_list2)
+​
+# Print the results
+print("Color1-Color2:", result1)
+print("Color2-Color1:", result2)
+​
+Color1-Color2: ['orange', 'red', 'white']
+Color2-Color1: ['black', 'yellow']
+# 4. Write a Python program to move all zero digits to the end of a given list
+# of numbers.
+# Expected output:
+# Original list:
+# [3, 4, 0, 0, 0, 6, 2, 0, 6, 7, 6, 0, 0, 0, 9, 10, 7, 4, 4, 5, 3, 0, 0, 2, 9, 7, 1]
+# Move all zero digits to end of the said list of numbers:
+# [3, 4, 6, 2, 6, 7, 6, 9, 10, 7, 4, 4, 5, 3, 2, 9, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+​
+def move_zeros_to_end(lst):
+    # Count the number of zeros in the list
+    zero_count = lst.count(0)
+​
+    # Initialize a new list to store non-zero digits
+    non_zero_list = []
+​
+    # Iterate through the list and move non-zero digits to the front
+    for num in lst:
+        if num != 0:
+            non_zero_list.append(num)
+​
+    # Append the required number of zeros at the end
+    non_zero_list += [0] * zero_count
+​
+    return non_zero_list
+​
+# Sample list
+original_list = [3, 4, 0, 0, 0, 6, 2, 0, 6, 7, 6, 0, 0, 0, 9, 10, 7, 4, 4, 5, 3, 0, 0, 2, 9, 7, 1]
+​
+# Move all zero digits to the end of the list using a for loop
+result_list = move_zeros_to_end(original_list)
+​
+# Print the results
+print("Original list:")
+print(original_list)
+print("Move all zero digits to end of the list:")
+print(result_list)
+​
+Original list:
+[3, 4, 0, 0, 0, 6, 2, 0, 6, 7, 6, 0, 0, 0, 9, 10, 7, 4, 4, 5, 3, 0, 0, 2, 9, 7, 1]
+Move all zero digits to end of the list:
+[3, 4, 6, 2, 6, 7, 6, 9, 10, 7, 4, 4, 5, 3, 2, 9, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+# 5. Write a Python program to find the list in a list of lists whose sum of
+# elements is the highest.
+# Sample lists: [1,2,3], [4,5,6], [10,11,12], [7,8,9]
+# Expected Output: [10, 11, 12]
+​
+def find_list_with_highest_sum(list_of_lists):
+    # Initialize variables to keep track of the current maximum sum and the corresponding list
+    max_sum = float('-inf')  # Initialize with negative infinity to ensure any sum is greater
+    max_sum_list = None
+​
+    # Iterate through each list in the list of lists
+    for sublist in list_of_lists:
+        # Calculate the sum of elements in the current list
+        current_sum = sum(sublist)
+​
+        # Update the maximum sum and corresponding list if the current sum is greater
+        if current_sum > max_sum:
+            max_sum = current_sum
+            max_sum_list = sublist
+​
+    return max_sum_list
+​
+# Sample list of lists
+list_of_lists = [[1, 2, 3], [4, 5, 6], [10, 11, 12], [7, 8, 9]]
+​
+# Find the list with the highest sum
+result_list = find_list_with_highest_sum(list_of_lists)
+​
+# Print the result
+print("Sample lists:")
+for sublist in list_of_lists:
+    print(sublist)
+​
+print("List with the highest sum:", result_list)
+​
+Sample lists:
+[1, 2, 3]
+[4, 5, 6]
+[10, 11, 12]
+[7, 8, 9]
+List with the highest sum: [10, 11, 12]
+# 6. Write a Python program to remove consecutive (following each other
+# continuously) duplicates (elements) from a given list.
+# Original list:
+# [0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4]
+# After removing consecutive duplicates:
+# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 4]
+​
+def remove_consecutive_duplicates(input_list):
+    result_list = [input_list[0]]
+​
+    for i in range(1, len(input_list)):
+        if input_list[i] != input_list[i - 1]:
+            result_list.append(input_list[i])
+​
+    return result_list
+​
+# Example usage:
+original_list = [0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4]
+result = remove_consecutive_duplicates(original_list)
+​
+print("Original list:")
+print(original_list)
+print("After removing consecutive duplicates:")
+print(result)
+​
+​
+Original list:
+[0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4]
+After removing consecutive duplicates:
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 4]
